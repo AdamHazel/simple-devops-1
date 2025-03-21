@@ -1,0 +1,17 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: ./app/Example
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - dotnet_app_network
+    depends_on:
+      - app_db
+    restart: unless-stopped
+
+networks:
+  dotnet_app_network:
+    external: true

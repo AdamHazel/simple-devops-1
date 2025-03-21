@@ -1,0 +1,10 @@
+networks:
+  dotnet_app_network:
+    name: dotnet_app_network
+
+services:
+  dummy:
+    image: busybox
+    command: sleep infinity
+    networks:
+    - dotnet_app_network
